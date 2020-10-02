@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 async function fetchCauses(search) {
   const urlFeat = `https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=${process.env.REACT_APP_API_KEY}`;
   const urlSearch = `https://api.globalgiving.org/api/public/services/search/projects?api_key=${process.env.REACT_APP_API_KEY}&q=${search}`;
+  const urlOrg = `https://api.globalgiving.org/api/public/orgservice/all/organizations/active?api_key=${process.env.REACT_APP_API_KEY}&filter=country:${search}}`;
 
   let headers = new Headers();
   headers.append("Accept", "application/json");
   headers.append("Content-Type", "application/json");
   headers.append("mode", "cors");
 
-  let url = "";
+  let url = urlOrg;
   if (search !== "") url = urlSearch;
   if (search === "") url = urlFeat;
 
@@ -18,6 +19,7 @@ async function fetchCauses(search) {
     headers: headers,
   });
 
+  console.log(req);
   const data = await fetch(req);
   const jsonData = await data.json();
   return jsonData;
@@ -33,14 +35,16 @@ function useCauses(search) {
       fetchCauses(search).then((json) => {
         if (current) {
           console.log(json);
-          if (json.search && json.search.response.numberFound === 0) {
+          if (json.organizations) {
+            setCauses(json.organizations.organization);
+          } else if (json.search && json.search.response.numberFound === 0) {
             setCauses([]);
           } else {
             json.search !== undefined
               ? setCauses(json.search.response.projects.project)
               : setCauses(json.projects.project);
-            setLoading(false);
           }
+          setLoading(false);
         }
       });
       return () => {
