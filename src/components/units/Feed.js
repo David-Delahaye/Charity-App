@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Feed({ items, loading }) {
   if (loading)
@@ -17,9 +18,9 @@ function Feed({ items, loading }) {
       <div>
         <h1>{item.title}</h1>
         <p>{item.need}</p>
-        <a href={item.contactUrl} target="_blank" rel="noopener noreferrer">
+        <Link to={`/Cause/${item.id}`}>
           <img src={item.imageLink} alt={item.image.title} />
-        </a>
+        </Link>
       </div>
     );
   });
