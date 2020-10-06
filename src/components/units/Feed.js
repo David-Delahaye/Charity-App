@@ -18,6 +18,9 @@ function Feed({ items, loading }) {
       <div>
         <h1>{item.title}</h1>
         <p>{item.need}</p>
+        <Link to={`/Organization/${item.organization.id}`}>
+          <h4>{item.organization.name}</h4>
+        </Link>
         <Link to={`/Cause/${item.id}`}>
           <img src={item.imageLink} alt={item.image.title} />
         </Link>

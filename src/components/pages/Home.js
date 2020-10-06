@@ -7,7 +7,7 @@ import SearchBar from "../units/SearchBar";
 function Home() {
   const [search, setSearch] = useState("india");
   const [query, setQuery] = useState(search);
-  const [causes, loading] = useCauses(query);
+  const [causes, loading] = useCauses(query, undefined, "search");
 
   return (
     <div>
