@@ -2,12 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Feed({ items, loading }) {
-  if (loading)
-    return () => {
-      for (let i = 0; i < 10; i++) {
-        return <h1>loading</h1>;
-      }
-    };
+  console.log(loading);
+  if (loading === true)
+    return (
+      <div>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+      </div>
+    );
 
   if (items.length === 0) {
     return <h1>No Results for this Search</h1>;
@@ -15,7 +21,7 @@ function Feed({ items, loading }) {
 
   return items.map((item, index) => {
     return (
-      <div>
+      <div key={index}>
         <h1>{item.title}</h1>
         <p>{item.need}</p>
         <Link to={`/Organization/${item.organization.id}`}>

@@ -8,6 +8,10 @@ async function fetchCauses(search, id, setting) {
       url = `https://api.globalgiving.org/api/public/orgservice/organization/${id}?api_key=${process.env.REACT_APP_API_KEY}`;
       break;
 
+    case "causeByOrg":
+      url = `https://api.globalgiving.org/api/public/projectservice/organizations/${id}/projects?api_key=${process.env.REACT_APP_API_KEY}`;
+      break;
+
     case "causeId":
       url = `https://api.globalgiving.org/api/public/projectservice/projects/collection/ids?api_key=${process.env.REACT_APP_API_KEY}&projectIds=${id}`;
       break;
@@ -47,6 +51,7 @@ function useCauses(search, id, setting) {
     (async) => {
       console.log(search);
       let current = true;
+      setLoading(true);
       fetchCauses(search, id, setting).then((json) => {
         if (current) {
           console.log(json);
@@ -57,7 +62,10 @@ function useCauses(search, id, setting) {
           } else if (json.organization) {
             setCauses(json.organization);
             //Search null
-          } else if (json.search && json.search.response.numberFound === 0) {
+          } else if (
+            (json.search && json.search.response.numberFound === 0) ||
+            (json.projects && json.projects.numberFound === 0)
+          ) {
             setCauses([]);
             //Cause Search
           } else {

@@ -6,11 +6,9 @@ import Feed from "../units/Feed";
 
 function Organization() {
   let { orgId } = useParams();
-  console.log(orgId);
   const [org, loading] = useCauses("", orgId, "orgId");
-  const [causes, loadingCauses] = useCauses("isha", undefined, "search");
+  const [causes, loadingCauses] = useCauses("", orgId, "causeByOrg");
   if (org !== null) console.log(org);
-
   if (loading) return <h1>loading</h1>;
 
   return (
