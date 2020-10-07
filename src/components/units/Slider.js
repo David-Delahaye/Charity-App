@@ -17,17 +17,16 @@ function Slider({ items, loading }) {
 
   const renderItems = items.map((item, index) => {
     return (
-      <div key={index} className="item">
+      <Link key={index} className="item" to={`/Cause/${item.id}`}>
         <div className="text">
-          <h2>{item.title}</h2>
-          <Link to={`/Organization/${item.organization.id}`}>
-            <h4>{item.organization.name}</h4>
-          </Link>
+          <h4>{item.title}</h4>
         </div>
-        <Link className="img" to={`/Cause/${item.id}`}>
-          <img src={item.image.imagelink[3].url} alt={item.image.title} />
-        </Link>
-      </div>
+        <img
+          className="img"
+          src={item.image.imagelink[3].url}
+          alt={item.image.title}
+        />
+      </Link>
     );
   });
 
