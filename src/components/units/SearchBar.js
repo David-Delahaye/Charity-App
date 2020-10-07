@@ -3,6 +3,7 @@ import React from "react";
 function SearchBar({ search, setSearch, setQuery }) {
   return (
     <form
+      className="searchbar"
       onSubmit={(e) => {
         e.preventDefault();
         setQuery(search);

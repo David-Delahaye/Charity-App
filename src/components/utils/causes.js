@@ -82,6 +82,7 @@ function useCauses(search, id, setting) {
     },
     [search, id, setting]
   );
+  console.log(causes);
   return [causes, loading];
 }
 

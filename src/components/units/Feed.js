@@ -19,20 +19,24 @@ function Feed({ items, loading }) {
     return <h1>No Results for this Search</h1>;
   }
 
-  return items.map((item, index) => {
+  const renderFeed = items.map((item, index) => {
     return (
-      <div key={index}>
-        <h1>{item.title}</h1>
-        <p>{item.need}</p>
-        <Link to={`/Organization/${item.organization.id}`}>
-          <h4>{item.organization.name}</h4>
-        </Link>
+      <div key={index} className="item">
         <Link to={`/Cause/${item.id}`}>
-          <img src={item.imageLink} alt={item.image.title} />
+          <img src={item.image.imagelink[4].url} alt={item.image.title} />
         </Link>
+        <div className="text">
+          <h1>{item.title}</h1>
+          <Link to={`/Organization/${item.organization.id}`}>
+            <h4>By {item.organization.name}</h4>
+          </Link>
+          <p>{item.need}</p>
+        </div>
       </div>
     );
   });
+
+  return <div className="feed">{renderFeed}</div>;
 }
 
 export default Feed;

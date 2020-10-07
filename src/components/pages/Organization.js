@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import useCauses from "../utils/causes";
 import Feed from "../units/Feed";
+import Slider from "../units/Slider";
 
 function Organization() {
   let { orgId } = useParams();
@@ -16,7 +17,7 @@ function Organization() {
       <h1>{org.name}</h1>
       <p>{org.mission}</p>
       <h1>Other projects</h1>
-      <Feed items={causes} loading={loadingCauses} />
+      <Slider items={causes} loading={loadingCauses} />
     </div>
   );
 }
