@@ -38,7 +38,6 @@ async function fetchCauses(search, id, setting) {
     headers: headers,
   });
 
-  console.log(req);
   const data = await fetch(req);
   const jsonData = await data.json();
   return jsonData;
@@ -49,12 +48,10 @@ function useCauses(search, id, setting) {
   const [loading, setLoading] = useState(true);
   useEffect(
     (async) => {
-      console.log(search);
       let current = true;
       setLoading(true);
       fetchCauses(search, id, setting).then((json) => {
         if (current) {
-          console.log(json);
           //org Search
           if (json.organizations) {
             setCauses(json.organizations.organization);
