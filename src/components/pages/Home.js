@@ -2,6 +2,7 @@ import React from "react";
 
 import useCauses from "../utils/causes";
 import Slider from "../units/Slider";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [causes, loading] = useCauses("", undefined, "feat");
@@ -18,10 +19,13 @@ function Home() {
           <h4>
             <em>Give your money away</em>
           </h4>
+          <Link to="/search">Search Causes</Link>
         </div>
       </div>
-      <h3>Featured Projects</h3>
-      <Slider items={causes} loading={loading} />
+      <div className="container">
+        <h3>Featured Projects</h3>
+        <Slider items={causes} loading={loading} />
+      </div>
     </div>
   );
 }
