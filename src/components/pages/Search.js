@@ -10,7 +10,7 @@ function Search() {
   const [causes, loading] = useCauses(query, undefined, "search");
 
   return (
-    <div>
+    <div className="container">
       <h1>Causes</h1>
       <SearchBar setSearch={setSearch} setQuery={setQuery} search={search} />
       <Feed items={causes} loading={loading} />

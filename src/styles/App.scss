@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
-.App {
-  text-align: center;
+#root {
+  padding-top: 2rem;
 }
 
 * {
@@ -12,7 +12,7 @@
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
@@ -61,26 +61,29 @@
 }
 
 .feed {
-  width: 80%;
-  margin: auto;
   .item {
     display: flex;
+    flex-direction: column;
     margin: 1rem;
     border: 1px solid black;
+    a {
+      flex: 1;
+    }
     img {
-      width: 25rem;
-      height: 15rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
     .text {
       background-color: rgb(252, 245, 245);
       padding: 1rem;
+      flex: 1;
     }
   }
 }
 
 .searchbar {
-  width: 80%;
-  margin: auto;
   display: flex;
   justify-content: space-around;
   height: 3rem;
@@ -144,6 +147,9 @@ nav {
 @media only screen and (min-width: 800px) {
   html {
     font-size: 19px;
+    .item {
+      flex-direction: row !important;
+    }
   }
 }
 

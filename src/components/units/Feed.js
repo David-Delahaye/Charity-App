@@ -26,11 +26,11 @@ function Feed({ items, loading }) {
           <img src={item.image.imagelink[4].url} alt={item.image.title} />
         </Link>
         <div className="text">
-          <h1>{item.title}</h1>
+          <h3>{item.title}</h3>
           <Link to={`/Organization/${item.organization.id}`}>
-            <h4>By {item.organization.name}</h4>
+            <h5>By {item.organization.name}</h5>
           </Link>
-          <p>{item.need}</p>
+          <p>{item.need.slice(0, 200)}...</p>
         </div>
       </div>
     );
