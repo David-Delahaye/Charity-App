@@ -16,12 +16,43 @@
   margin: auto;
 }
 
+.button {
+  overflow: hidden;
+  display: block;
+  z-index: 2;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  color: black;
+  text-decoration: none;
+  box-sizing: content-box;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    width: 400%;
+    background: linear-gradient(
+      120deg,
+      rgb(193, 239, 252) 50%,
+      rgb(244, 250, 252) 50%
+    );
+    z-index: -1;
+    transition: 0.4s ease-in-out;
+    transform: translateX(-300px);
+  }
+  &:hover::before {
+    transform: translateX(-100px);
+  }
+}
+
 .slider {
   display: flex;
   overflow-x: scroll;
   .item {
     position: relative;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     min-width: 15rem;
     height: 10rem;
     overflow: hidden;
@@ -117,7 +148,6 @@
     background-color: rgba(0, 0, 0, 0.249);
     backdrop-filter: blur(3px);
     box-shadow: 0px 0px 2rem black;
-    border-radius: 4rem;
     text-shadow: 2px 2px 1rem black;
   }
 }

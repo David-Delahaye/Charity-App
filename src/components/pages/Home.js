@@ -19,10 +19,18 @@ function Home() {
           <h4>
             <em>Give your money away</em>
           </h4>
-          <Link to="/search">Search Causes</Link>
+          <Link className="button" to="/search">
+            Search Causes
+          </Link>
         </div>
       </div>
       <div className="container">
+        <p>
+          GlobalGiving connects nonprofits, donors, and companies in nearly
+          every country in the world. We help fellow nonprofits access the
+          funding, tools, training, and support they need to serve their
+          communities.
+        </p>
         <h3>Featured Projects</h3>
         <Slider items={causes} loading={loading} />
       </div>
