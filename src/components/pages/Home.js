@@ -25,12 +25,15 @@ function Home() {
         </div>
       </div>
       <div className="container">
-        <p>
-          GlobalGiving connects nonprofits, donors, and companies in nearly
-          every country in the world. We help fellow nonprofits access the
-          funding, tools, training, and support they need to serve their
-          communities.
-        </p>
+        <div className="featured">
+          <p className="featuredtext">
+            This website aims to provide information and guidance on charitable
+            causes from <b>all around the world</b>, whether local to yourself
+            or a cause that strikes dear to your heart, we aim to give you all
+            the information you need so you can <b>spread the love</b> and help
+            those who need it most.
+          </p>
+        </div>
         <h3>Featured Projects</h3>
         <Slider items={causes} loading={loading} />
       </div>
