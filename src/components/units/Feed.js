@@ -5,13 +5,14 @@ function Feed({ items, loading }) {
   console.log(loading);
   if (loading === true)
     return (
-      <div>
-        <h1>Loading</h1>
-        <h1>Loading</h1>
-        <h1>Loading</h1>
-        <h1>Loading</h1>
-        <h1>Loading</h1>
-        <h1>Loading</h1>
+      <div className="feed">
+        <div className="item">
+          <div className="img-load img" />
+          <div className="text text-load">
+            <h3 className="head-load"></h3>
+            <p className="para-load"></p>
+          </div>
+        </div>
       </div>
     );
 
@@ -22,7 +23,11 @@ function Feed({ items, loading }) {
   const renderFeed = items.map((item, index) => {
     return (
       <div key={index} className="item">
-        <img src={item.image.imagelink[4].url} alt={item.image.title} />
+        <img
+          className="img"
+          src={item.image.imagelink[4].url}
+          alt={item.image.title}
+        />
         <div className="text">
           <h3>{item.title}</h3>
           <Link to={`/Organization/${item.organization.id}`}>
