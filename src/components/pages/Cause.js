@@ -12,8 +12,16 @@ function Cause() {
 
   return (
     <div>
-      <h1>{cause[0].title}</h1>
-      <p>{cause[0].need}</p>
+      <div className="header">
+        <img src={cause[0].image.imagelink[4].url} />
+        <h1>
+          {cause[0].title} <br />
+          by {cause[0].contactName}
+        </h1>
+      </div>
+      <div className="container">
+        <p>{cause[0].need}</p>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Feed({ items, loading }) {
   console.log(loading);
-  if (loading === true)
+  const loadFeed = () => {
     return (
       <div className="feed">
         <div className="item">
@@ -13,8 +13,25 @@ function Feed({ items, loading }) {
             <p className="para-load"></p>
           </div>
         </div>
+        <div className="item">
+          <div className="img-load img" />
+          <div className="text text-load">
+            <h3 className="head-load"></h3>
+            <p className="para-load"></p>
+          </div>
+        </div>
+        <div className="item">
+          <div className="img-load img" />
+          <div className="text text-load">
+            <h3 className="head-load"></h3>
+            <p className="para-load"></p>
+          </div>
+        </div>
       </div>
     );
+  };
+
+  if (loading === true) return loadFeed();
 
   if (items.length === 0) {
     return <h1>No Results for this Search</h1>;
