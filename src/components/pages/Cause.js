@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import useCauses from "../utils/causes";
 
@@ -16,7 +16,10 @@ function Cause() {
         <img src={cause.image.imagelink[4].url} />
         <h1>
           {cause.title} <br />
-          by {cause.organization.name}
+          by{" "}
+          <Link to={`/Organization/${cause.organization.id}`}>
+            {cause.organization.name}
+          </Link>
         </h1>
       </div>
       <div className="container">
