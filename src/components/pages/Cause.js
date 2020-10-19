@@ -10,6 +10,8 @@ function Cause() {
   if (loading) return <h1>loading</h1>;
 
   cause = cause[0];
+  let percentRaised = (cause.funding / cause.goal) * 100;
+
   return (
     <div>
       <div className="header">
@@ -22,19 +24,22 @@ function Cause() {
           </Link>
         </h1>
       </div>
-      <div className="container">
-        <h3>Summary</h3>
-        <p>{cause.summary}</p>
-        <h3>notice</h3>
-        <p>{cause.notice}</p>
-        <h3>need</h3>
-        <p>{cause.need}</p>
-        <h3>impact</h3>
-        <p>{cause.longTermImpact}</p>
-        <h3>Goal</h3>
-        <p>
-          {cause.funding} of {cause.goal} raised
-        </p>
+      <div className="container page">
+        <div className="text">
+          <h3>Summary</h3>
+          <p>{cause.summary}</p>
+          <h3>notice</h3>
+          <p>{cause.notice}</p>
+          <h3>need</h3>
+          <p>{cause.need}</p>
+          <h3>impact</h3>
+          <p>{cause.longTermImpact}</p>
+          <h3>Goal</h3>
+        </div>
+        <div className="raised">
+          <div className="completed" style={{ height: percentRaised + "%" }} />
+          {cause.funding} of {cause.goal} raised {percentRaised}%
+        </div>
       </div>
     </div>
   );

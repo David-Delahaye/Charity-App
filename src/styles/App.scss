@@ -24,6 +24,11 @@ $pale-color: hsl(212, 51%, 95%);
   align-items: center;
   background-color: rgb(26, 26, 26);
   z-index: 0;
+  a {
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+  }
   img {
     position: absolute;
     width: 100%;
@@ -40,6 +45,8 @@ $pale-color: hsl(212, 51%, 95%);
   h1 {
     color: white;
     font-weight: 800;
+    width: 90%;
+    margin: auto;
     z-index: 1;
   }
 }
@@ -180,6 +187,30 @@ p {
       }
     }
   }
+}
+
+.page {
+  display: flex;
+}
+
+.raised {
+  position: relative;
+  width: 20%;
+  height: 40rem;
+  background-color: $pale-color;
+  z-index: 0;
+  .completed {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: orangered;
+    z-index: -1;
+  }
+}
+
+.text {
+  width: 80%;
+  padding: 1rem;
 }
 
 @keyframes loading {

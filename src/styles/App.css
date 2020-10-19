@@ -29,6 +29,12 @@
   z-index: 0;
 }
 
+.header a {
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+}
+
 .header img {
   position: absolute;
   width: 100%;
@@ -49,6 +55,8 @@
 .header h1 {
   color: white;
   font-weight: 800;
+  width: 90%;
+  margin: auto;
   z-index: 1;
 }
 
@@ -214,6 +222,33 @@ p {
   width: 60%;
   -webkit-animation: loading 1s infinite;
           animation: loading 1s infinite;
+}
+
+.page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.raised {
+  position: relative;
+  width: 20%;
+  height: 40rem;
+  background-color: #ecf2f9;
+  z-index: 0;
+}
+
+.raised .completed {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  background-color: orangered;
+  z-index: -1;
+}
+
+.text {
+  width: 80%;
+  padding: 1rem;
 }
 
 @-webkit-keyframes loading {
