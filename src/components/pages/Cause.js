@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 import useCauses from "../utils/causes";
+import Gallery from "../units/Gallery";
 
 function Cause() {
   let { causeId } = useParams();
@@ -40,6 +41,7 @@ function Cause() {
           <div className="completed" style={{ height: percentRaised + "%" }} />
           {cause.funding} of {cause.goal} raised {percentRaised}%
         </div>
+        <Gallery id={cause.id} />
       </div>
     </div>
   );

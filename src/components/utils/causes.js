@@ -24,6 +24,10 @@ async function fetchCauses(search, id, setting) {
       url = `https://api.globalgiving.org/api/public/services/search/projects?api_key=${process.env.REACT_APP_API_KEY}&q=${search}`;
       break;
 
+    case "gallery":
+      url = `https://api.globalgiving.org/api/public/projectservice/projects/${id}/imagegallery?api_key=${process.env.REACT_APP_API_KEY}`;
+      break;
+
     default:
       break;
   }
@@ -52,8 +56,13 @@ function useCauses(search, id, setting) {
       setLoading(true);
       fetchCauses(search, id, setting).then((json) => {
         if (current) {
+          console.log(json);
+          //image id
+          if (json.images) {
+            setCauses(json.images.image);
+          }
           //org Search
-          if (json.organizations) {
+          else if (json.organizations) {
             setCauses(json.organizations.organization);
             //org Id
           } else if (json.organization) {
