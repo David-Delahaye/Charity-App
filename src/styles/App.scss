@@ -5,6 +5,8 @@ $pale-color: hsl(212, 51%, 95%);
 
 #root {
   padding-top: 3rem;
+  background-color: rgb(235, 237, 240);
+  z-index: -10;
 }
 
 * {
@@ -18,10 +20,11 @@ $pale-color: hsl(212, 51%, 95%);
   width: 100%;
   position: relative;
   display: flex;
-  height: 30vh;
-  margin-bottom: 1rem;
+  height: 40vh;
+  margin-bottom: 2rem;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: rgb(26, 26, 26);
   z-index: 0;
   a {
@@ -32,7 +35,7 @@ $pale-color: hsl(212, 51%, 95%);
   img {
     position: absolute;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     object-position: center;
     object-fit: cover;
     z-index: 0;
@@ -45,6 +48,8 @@ $pale-color: hsl(212, 51%, 95%);
   h1 {
     color: white;
     font-weight: 800;
+    font-size: 3em;
+    margin-bottom: 1rem;
     width: 90%;
     margin: auto;
     z-index: 1;
@@ -58,6 +63,10 @@ $pale-color: hsl(212, 51%, 95%);
 
 p {
   margin-bottom: 1rem;
+}
+
+h3 {
+  margin-top: 1rem;
 }
 
 .featured {
@@ -111,6 +120,7 @@ p {
     min-width: 15rem;
     height: 10rem;
     overflow: hidden;
+    z-index: 1;
     img {
       position: absolute;
       top: 0px;
@@ -119,7 +129,7 @@ p {
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: -1;
+      z-index: 0;
     }
     .text {
       position: absolute;
@@ -136,6 +146,7 @@ p {
       );
       bottom: -50px;
       opacity: 0;
+      z-index: 1;
     }
     &:hover {
       .text {
@@ -191,26 +202,74 @@ p {
 
 .page {
   display: flex;
+  flex-direction: column;
 }
 
 .raised {
   position: relative;
-  width: 20%;
-  height: 40rem;
   background-color: $pale-color;
+  color: rgb(0, 0, 0);
+  margin-top: -3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
   z-index: 0;
   .completed {
     position: absolute;
-    top: 0px;
-    width: 100%;
-    background-color: orangered;
+    left: 0px;
+    height: 100%;
+    background-color: $main-color;
     z-index: -1;
   }
 }
 
-.text {
-  width: 80%;
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  margin-right: 2rem;
+  overflow: hidden;
+  .control {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    z-index: 1;
+  }
+  .left {
+    left: 0px;
+  }
+  .right {
+    right: 0px;
+  }
+  .nub {
+    background-color: blue;
+    bottom: 0px;
+  }
+  .galleryContent {
+    position: absolute;
+    left: -260px;
+    display: flex;
+    flex-direction: row;
+    height: 10rem;
+    transition: 1s;
+    img {
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+      width: 20rem;
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+.section {
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 @keyframes loading {
@@ -245,26 +304,38 @@ p {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: rgb(90, 46, 4);
   z-index: 0;
+  background-color: rgb(26, 26, 26);
   .splash {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 60vh;
     object-position: center;
     object-fit: cover;
-    opacity: 0.7;
     z-index: 0;
+    opacity: 0.6;
+    &::after {
+      content: "";
+      background: grey;
+    }
   }
   .heroText {
     text-align: center;
     padding: 2rem;
     color: white;
-    background-color: rgba(0, 0, 0, 0.249);
-    backdrop-filter: blur(3px);
-    box-shadow: 0px 0px 2rem black;
     text-shadow: 2px 2px 1rem black;
     z-index: 1;
+    h1 {
+      font-size: 3rem;
+    }
+    em {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    .button {
+      margin-top: 2rem;
+    }
   }
 }
 
@@ -273,17 +344,17 @@ nav {
   top: 0px;
   width: 100%;
   height: 3rem;
-  background-color: rgba(0, 0, 0, 0.249);
+  background-color: rgba(255, 255, 255, 0.699);
   backdrop-filter: blur(3px);
   box-shadow: 0px 0px 2rem black;
   text-shadow: 2px 2px 1rem black;
-  color: white;
+  color: rgb(0, 0, 0);
   z-index: 10;
   display: flex;
   align-items: center;
   padding: 0.5rem;
   a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0rem 1rem;
   }
@@ -294,13 +365,13 @@ nav {
 
 @media only screen and (min-width: 600px) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media only screen and (min-width: 800px) {
   html {
-    font-size: 19px;
+    font-size: 17px;
     .feed {
       .item {
         flex-direction: row !important;
@@ -315,17 +386,37 @@ nav {
         }
       }
     }
+    .page {
+      flex-direction: row !important;
+      padding-top: 2rem;
+      .text {
+        width: 80%;
+      }
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      height: 50rem;
+      overflow: scroll;
+      img {
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        margin: 0.5rem 0rem;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 1200px) {
   html {
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1600px) {
   html {
-    font-size: 23px;
+    font-size: 20px;
   }
 }

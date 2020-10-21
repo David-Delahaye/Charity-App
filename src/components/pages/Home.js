@@ -34,7 +34,6 @@ function Home() {
             those who need it most.
           </p>
         </div>
-        <h3>Featured Projects</h3>
         <Slider items={causes} loading={loading} />
       </div>
     </div>

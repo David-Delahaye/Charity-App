@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 #root {
   padding-top: 3rem;
+  background-color: #ebedf0;
+  z-index: -10;
 }
 
 * {
@@ -17,14 +19,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 30vh;
-  margin-bottom: 1rem;
+  height: 40vh;
+  margin-bottom: 2rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
   background-color: #1a1a1a;
   z-index: 0;
 }
@@ -38,7 +41,7 @@
 .header img {
   position: absolute;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   -o-object-position: center;
      object-position: center;
   -o-object-fit: cover;
@@ -55,6 +58,8 @@
 .header h1 {
   color: white;
   font-weight: 800;
+  font-size: 3em;
+  margin-bottom: 1rem;
   width: 90%;
   margin: auto;
   z-index: 1;
@@ -67,6 +72,10 @@
 
 p {
   margin-bottom: 1rem;
+}
+
+h3 {
+  margin-top: 1rem;
 }
 
 .featured {
@@ -132,6 +141,7 @@ p {
   min-width: 15rem;
   height: 10rem;
   overflow: hidden;
+  z-index: 1;
 }
 
 .slider .item img {
@@ -144,7 +154,7 @@ p {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  z-index: -1;
+  z-index: 0;
 }
 
 .slider .item .text {
@@ -160,6 +170,7 @@ p {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.685), rgba(0, 0, 0, 0.781));
   bottom: -50px;
   opacity: 0;
+  z-index: 1;
 }
 
 .slider .item:hover .text {
@@ -228,27 +239,98 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .raised {
   position: relative;
-  width: 20%;
-  height: 40rem;
   background-color: #ecf2f9;
+  color: black;
+  margin-top: -3rem;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  text-align: center;
   z-index: 0;
 }
 
 .raised .completed {
   position: absolute;
-  top: 0px;
-  width: 100%;
-  background-color: orangered;
+  left: 0px;
+  height: 100%;
+  background-color: #719dd1;
   z-index: -1;
 }
 
-.text {
-  width: 80%;
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.gallery .control {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  z-index: 1;
+}
+
+.gallery .left {
+  left: 0px;
+}
+
+.gallery .right {
+  right: 0px;
+}
+
+.gallery .nub {
+  background-color: blue;
+  bottom: 0px;
+}
+
+.gallery .galleryContent {
+  position: absolute;
+  left: -260px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 10rem;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.gallery .galleryContent img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
+  width: 20rem;
+  margin: 0 0.5rem;
+}
+
+.section {
+  background-color: white;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 @-webkit-keyframes loading {
@@ -306,33 +388,47 @@ p {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 1rem;
-  background-color: #5a2e04;
   z-index: 0;
+  background-color: #1a1a1a;
 }
 
 .hero .splash {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 60vh;
   -o-object-position: center;
      object-position: center;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0.7;
   z-index: 0;
+  opacity: 0.6;
+}
+
+.hero .splash::after {
+  content: "";
+  background: grey;
 }
 
 .hero .heroText {
   text-align: center;
   padding: 2rem;
   color: white;
-  background-color: rgba(0, 0, 0, 0.249);
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  -webkit-box-shadow: 0px 0px 2rem black;
-          box-shadow: 0px 0px 2rem black;
   text-shadow: 2px 2px 1rem black;
   z-index: 1;
+}
+
+.hero .heroText h1 {
+  font-size: 3rem;
+}
+
+.hero .heroText em {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.hero .heroText .button {
+  margin-top: 2rem;
 }
 
 nav {
@@ -340,13 +436,13 @@ nav {
   top: 0px;
   width: 100%;
   height: 3rem;
-  background-color: rgba(0, 0, 0, 0.249);
+  background-color: rgba(255, 255, 255, 0.699);
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   -webkit-box-shadow: 0px 0px 2rem black;
           box-shadow: 0px 0px 2rem black;
   text-shadow: 2px 2px 1rem black;
-  color: white;
+  color: black;
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -358,7 +454,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: black;
   text-decoration: none;
   margin: 0rem 1rem;
 }
@@ -369,13 +465,13 @@ nav .rightNav {
 
 @media only screen and (min-width: 600px) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media only screen and (min-width: 800px) {
   html {
-    font-size: 19px;
+    font-size: 17px;
   }
   html .feed .item {
     -webkit-box-orient: horizontal !important;
@@ -392,17 +488,47 @@ nav .rightNav {
     width: 55% !important;
     height: 100% !important;
   }
+  html .page {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    padding-top: 2rem;
+  }
+  html .page .text {
+    width: 80%;
+  }
+  html .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 80%;
+    height: 50rem;
+    overflow: scroll;
+  }
+  html .gallery img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    height: 100%;
+    margin: 0.5rem 0rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   html {
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1600px) {
   html {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 /*# sourceMappingURL=App.css.map */

@@ -17,31 +17,36 @@ function Cause() {
     <div>
       <div className="header">
         <img src={cause.image.imagelink[4].url} />
-        <h1>
-          {cause.title} <br />
-          by{" "}
-          <Link to={`/Organization/${cause.organization.id}`}>
-            {cause.organization.name}
-          </Link>
-        </h1>
+        <h1>{cause.title}</h1>
+      </div>
+      <div className="raised">
+        <div className="completed" style={{ width: percentRaised + "%" }} />$
+        {cause.funding} of ${cause.goal} raised ({parseInt(percentRaised)}
+        %)
       </div>
       <div className="container page">
-        <div className="text">
-          <h3>Summary</h3>
-          <p>{cause.summary}</p>
-          <h3>notice</h3>
-          <p>{cause.notice}</p>
-          <h3>need</h3>
-          <p>{cause.need}</p>
-          <h3>impact</h3>
-          <p>{cause.longTermImpact}</p>
-          <h3>Goal</h3>
-        </div>
-        <div className="raised">
-          <div className="completed" style={{ height: percentRaised + "%" }} />
-          {cause.funding} of {cause.goal} raised {percentRaised}%
-        </div>
         <Gallery id={cause.id} />
+        <div className="text">
+          <div className="section">
+            <h3>Summary</h3>
+            <p>{cause.summary}</p>
+          </div>
+          {/* <div className="section">
+            <h3>notice</h3>
+            <p>{cause.notice}</p>
+          </div> */}
+          <div className="section">
+            <h3>need</h3>
+            <p>{cause.need}</p>
+          </div>
+          <div className="section">
+            <h3>impact</h3>
+            <p>{cause.longTermImpact}</p>
+          </div>
+          <a href={cause.contactUrl} className="button">
+            Donate Now
+          </a>
+        </div>
       </div>
     </div>
   );
