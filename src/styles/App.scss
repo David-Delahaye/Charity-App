@@ -234,20 +234,33 @@ h3 {
   overflow: hidden;
   .control {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: $dark-color;
+    color: $pale-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
+    bottom: 50%;
   }
   .left {
-    left: 0px;
+    left: 10px;
   }
   .right {
-    right: 0px;
+    right: 10px;
   }
   .nub {
-    background-color: blue;
-    bottom: 0px;
+    background-color: $pale-color;
+    bottom: 10px;
+    width: 10px;
+    height: 10px;
+    transition: 1s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.397);
+  }
+  .active {
+    background-color: $dark-color;
   }
   .galleryContent {
     position: absolute;
@@ -261,7 +274,6 @@ h3 {
       object-position: center;
       height: 100%;
       width: 20rem;
-      margin: 0 0.5rem;
     }
   }
 }

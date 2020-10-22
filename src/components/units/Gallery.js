@@ -31,9 +31,22 @@ function Gallery({ id }) {
 
   const nubs = images.map((item, index) => {
     console.log(((index + 0.5) / images.length) * 100);
+    if (index === activeIndex) {
+      return (
+        <div
+          style={{
+            left: (((index + 0.5) / images.length) * 100) / 2 + 25 + "%",
+          }}
+          className="nub control active"
+          onClick={() => {
+            goToIndex(index);
+          }}
+        ></div>
+      );
+    }
     return (
       <div
-        style={{ left: ((index + 0.5) / images.length) * 100 + "%" }}
+        style={{ left: (((index + 0.5) / images.length) * 100) / 2 + 25 + "%" }}
         className="nub control"
         onClick={() => {
           goToIndex(index);
@@ -44,12 +57,16 @@ function Gallery({ id }) {
 
   return (
     <div className="gallery" index={activeIndex}>
-      <div className="control left" onClick={previous} />
-      <div className="control right" onClick={next} />
+      <div className="control left" onClick={previous}>
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div className="control right" onClick={next}>
+        <i class="fas fa-arrow-right"></i>
+      </div>
       {nubs}
       <div
         className="galleryContent"
-        style={{ left: -activeIndex * 21 + 10 + "rem" }}
+        style={{ left: -activeIndex * 20 + "rem" }}
       >
         {imageRender}
       </div>
