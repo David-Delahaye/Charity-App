@@ -72,14 +72,11 @@ h3 {
 .featured {
   width: 100%;
   background-color: $pale-color;
-  color: $dark-color;
   padding: 2rem;
-
+  color: $dark-color;
   .featuredtext {
     text-align: center;
-    width: 60%;
     margin: 2rem auto;
-    min-width: 280px;
   }
 }
 
@@ -284,6 +281,12 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.loader {
+  width: 100%;
+  height: 100%;
+  animation: 1s infinite loading;
+}
+
 @keyframes loading {
   0% {
     background-color: rgb(224, 224, 224);
@@ -302,6 +305,7 @@ h3 {
   height: 3rem;
   input {
     width: 60%;
+    padding-inline-start: 0.5rem;
   }
   button {
     width: 30%;
@@ -373,6 +377,13 @@ nav {
   .rightNav {
     margin-left: auto;
   }
+}
+
+footer {
+  height: 20rem;
+  margin-top: 5rem;
+  background-color: black;
+  color: white;
 }
 
 @media only screen and (min-width: 600px) {

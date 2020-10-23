@@ -6,6 +6,7 @@ import Cause from "./pages/Cause";
 import Home from "./pages/Home";
 import Organization from "./pages/Organization";
 import Search from "./pages/Search";
+import Footer from "./units/Footer";
 import Nav from "./units/Nav";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/search" component={Search} />
       <Route path="/Cause/:causeId" component={Cause} />
       <Route path="/Organization/:orgId" component={Organization} />
+      <Footer />
     </Router>
   );
 }

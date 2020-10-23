@@ -3,12 +3,19 @@ import useCauses from "../utils/causes";
 
 function Gallery({ id }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [images, loading] = useCauses(null, id, "gallery");
-  if (loading) return "..";
+  let [images, loading] = useCauses(null, id, "gallery");
+  if (loading)
+    return (
+      <div className="gallery">
+        <div className="loader" />
+      </div>
+    );
+  const items = images.slice(1, 6);
+  console.log(items);
 
   const next = () => {
     const nextIndex =
-      activeIndex === images.length - 1 ? activeIndex : activeIndex + 1;
+      activeIndex === items.length - 1 ? activeIndex : activeIndex + 1;
     setActiveIndex(nextIndex);
     console.log(nextIndex);
   };
@@ -23,19 +30,19 @@ function Gallery({ id }) {
     setActiveIndex(newIndex);
   };
 
-  const imageRender = images.map((item, index) => {
+  const imageRender = items.map((item, index) => {
     return (
       <img src={item.imagelink[3].url} alt={item.title || "charity image"} />
     );
   });
 
-  const nubs = images.map((item, index) => {
-    console.log(((index + 0.5) / images.length) * 100);
+  const nubs = items.map((item, index) => {
+    console.log(((index + 0.5) / items.length) * 100);
     if (index === activeIndex) {
       return (
         <div
           style={{
-            left: (((index + 0.5) / images.length) * 100) / 2 + 25 + "%",
+            left: (((index + 0.5) / items.length) * 100) / 2 + 25 + "%",
           }}
           className="nub control active"
           onClick={() => {
@@ -46,7 +53,7 @@ function Gallery({ id }) {
     }
     return (
       <div
-        style={{ left: (((index + 0.5) / images.length) * 100) / 2 + 25 + "%" }}
+        style={{ left: (((index + 0.5) / items.length) * 100) / 2 + 25 + "%" }}
         className="nub control"
         onClick={() => {
           goToIndex(index);
